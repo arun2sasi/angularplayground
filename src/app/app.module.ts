@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { FooterModule } from './common/components/footer/footer.module';
 import { HeaderModule } from './common/components/header/header.module';
 import { CourseModule } from './core/components/course/course.module';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { IconsModule } from '@progress/kendo-angular-icons';
+import { DuplicateCourseModule } from './core/components/duplicate-course/duplicate-course.module';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
 
 @NgModule({
   declarations: [
@@ -17,7 +23,13 @@ import { CourseModule } from './core/components/course/course.module';
     CommonModule,
     HeaderModule,
     CourseModule,
-    FooterModule
+    FooterModule,
+    GridModule,
+    BrowserAnimationsModule,
+    ButtonsModule,
+    IconsModule,
+    DuplicateCourseModule,
+    DialogsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

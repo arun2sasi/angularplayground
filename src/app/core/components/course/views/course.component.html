@@ -1,6 +1,20 @@
-<ul *ngFor="let course of courses;">
+<kendo-grid [resizable]="true" [kendoGridTemplateEditing]="createNewCourse" [kendoGridBinding]="gridData"
+  [filterable]="true" [groupable]="false" [sortable]="true" [pageSize]="10" [pageable]="true" [height]="400"
+  >
 
-    <li>{{course}}</li>
- 
-</ul>
+  <ng-template kendoGridToolbarTemplate>
+    <button icon="add" kendoGridAddCommand type="button"></button>
 
+    <horizontal-toolbar (addItem)="addCourse()" (editItem)="editCourse()" (deleteItem)="deleteCourse()">
+    </horizontal-toolbar>
+
+  </ng-template>
+  <kendo-grid-column field="courseId" title="Course"></kendo-grid-column>
+
+
+  <kendo-grid-column field="courseName" title="Course"></kendo-grid-column>
+  <kendo-grid-column field="courseDescription" title="Description"></kendo-grid-column>
+  <kendo-grid-column field="author"></kendo-grid-column>
+  <kendo-grid-column field="price"></kendo-grid-column>
+
+</kendo-grid>

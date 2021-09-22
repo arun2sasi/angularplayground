@@ -1,23 +1,27 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Course } from '../models/course.model';
 
+const API = environment.api;
 @Injectable()
+export class CourseHttpService {
+  constructor(private http: HttpClient) {}
 
-export class CourseHttpService{
+  public getCourses(): any {
+    return this.http.get(`${API}/courses`);
+  }
 
-   constructor(private http:HttpClient){
+  public insertCourse(course: Course): any {
+    return this.http.post(`${API}/courses`, course);
+  }
 
+  public updateCourse(course: Course): any {
+    return this.http.put(`${API}/courses`, course);
+  }
 
-
-   }
-
-//    public getCourses(): any{
-//        return this.http.get(`https://localhost:5001/courses`);
-//    }
-    public getCourses():Observable<any> {
-
-        return of(["Angular","Python","Java", "Big Data", "Azure"]);
-    }
+  public deleteCourse(course: number): any {
+    return this.http.delete(`${API}/courses/${course}`);
+  }
 }
-
