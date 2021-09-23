@@ -9,6 +9,10 @@ const API = environment.api;
 export class CourseHttpService {
   constructor(private http: HttpClient) {}
 
+  public getCourse(courseId: number): any {
+    return this.http.get(`${API}/courses/${courseId}`);
+  }
+
   public getCourses(): any {
     return this.http.get(`${API}/courses`);
   }
@@ -21,7 +25,8 @@ export class CourseHttpService {
     return this.http.put(`${API}/courses`, course);
   }
 
-  public deleteCourse(course: number): any {
-    return this.http.delete(`${API}/courses/${course}`);
+  public deleteCourse(courseId: number): any {
+    return this.http.delete(`${API}/courses/${courseId}`);
   }
+  
 }

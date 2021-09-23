@@ -7,12 +7,25 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { ToolbarModule } from "src/app/common/components/toolbar/toolbar.module";
+import { CourseViewComponent } from "./controllers/course-view.component";
+import { CourseService } from "./services/course.service";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
-declarations:[CourseComponent],
-imports: [HttpClientModule,CommonModule, GridModule, ToolbarModule],
-providers: [CourseHttpService],
-exports: [CourseComponent]
+declarations:[CourseComponent, CourseViewComponent],
+imports: [HttpClientModule,CommonModule, GridModule, ToolbarModule,
+RouterModule.forChild([
+    {
+        path: "",
+        component: CourseComponent
+    },
+    {
+        path: "course-view/:courseId",
+        component: CourseViewComponent
+    }
+])],
+providers: [CourseHttpService , CourseService],
+exports: [CourseComponent, CourseViewComponent]
 })
 
 export class CourseModule{}
