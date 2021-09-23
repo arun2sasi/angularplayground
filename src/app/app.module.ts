@@ -10,7 +10,6 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { IconsModule } from '@progress/kendo-angular-icons';
-import { DuplicateCourseModule } from './core/components/duplicate-course/duplicate-course.module';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
     BrowserAnimationsModule,
     ButtonsModule,
     IconsModule,
-    DuplicateCourseModule,
     DialogsModule
   ],
   providers: [],

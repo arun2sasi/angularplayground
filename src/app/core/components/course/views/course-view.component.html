@@ -1,0 +1,9 @@
+<div *ngIf="course">
+    <ul>
+        <li>{{course.courseName}}</li>
+        <li>{{course.courseDescription}}</li>    
+        <li><input [value]="course.author" type="text"></li>    
+    </ul> 
+    <button (click)="clearContent()" >Clear</button>   
+</div>
+ 

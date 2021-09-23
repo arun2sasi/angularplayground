@@ -21,7 +21,8 @@ export class CourseHttpService {
     return this.http.put(`${API}/courses`, course);
   }
 
-  public deleteCourse(course: number): any {
-    return this.http.delete(`${API}/courses/${course}`);
+  public deleteCourse(courseId: number): any {
+    return this.http.delete(`${API}/courses/${courseId}`);
   }
+  
 }
