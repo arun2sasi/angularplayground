@@ -48,6 +48,9 @@ export class CourseComponent {
     this.subscriptions.push(this.getCourses());
     this.subscriptions.push(this.watchClear());
     this.subscriptions.push(this.watchEdit());
+    this.subscriptions.push(this.watchSave());
+    this.subscriptions.push(this.watchDelete());
+    this.subscriptions.push(this.watchCancel());
   }
 
   getCourses(): Subscription {
@@ -121,6 +124,7 @@ export class CourseComponent {
       );
     }
   }
+
   view() {
     console.log(this.selectedCourseId);
     this.selectedCourse = this.gridData.find(
@@ -185,10 +189,35 @@ export class CourseComponent {
     });
   }
 
+  watchSave(): Subscription{
+   return this.horizontalToolbarService.save$.subscribe((s) => {
+     if(s){
+       this.save();
+     }
+   });
+  }
+
+  watchDelete(): Subscription{
+    return this.horizontalToolbarService.delete$.subscribe((s) => {
+      if(s){
+        this.delete();
+      }
+    });
+   }
+ 
+  
   watchEdit(): Subscription {
     return this.horizontalToolbarService.edit$.subscribe((s) => {
       if (s) {
         this.edit();
+      }
+    });
+  }
+
+  watchCancel(): Subscription {
+    return this.horizontalToolbarService.cancel$.subscribe((s) => {
+      if (s) {
+        this.cancel();
       }
     });
   }
